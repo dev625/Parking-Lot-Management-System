@@ -2,7 +2,7 @@
 #include <iostream>
 class Vehicle
 {
-private:
+protected:
     int m_size;
     std::string m_numberPlate;
 
@@ -16,5 +16,10 @@ public:
     void describe()
     {
         std::cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";
+    }
+
+    int getSize()
+    {
+        return m_size;
     }
 };

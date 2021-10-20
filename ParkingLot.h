@@ -1,14 +1,17 @@
 #include <iostream>
+#include <Vehicle.h>
 class ParkingLot
 {
 private:
     int **p;
     int m_floors;
     int m_spots;
+    static int occupancy;
 
 public:
     ParkingLot(int floors = 6, int spots = 9)
     {
+        occupancy = 0;
         // Parking Lot has dimensions (floors,spots);
         m_floors = floors;
         m_spots = spots;
@@ -18,7 +21,7 @@ public:
             p[i] = new int[spots]; // each of those pointers point to a 1-D array
         }
 
-        //Init the Parking Lot Spots Size
+        // Init the Parking Lot Spots Size
         for (int i = 0; i < floors; i++)
         {
             for (int j = 0; j < spots; j++)
@@ -51,4 +54,17 @@ public:
             std::cout << "\n";
         }
     }
+
+    void Park(int type, std::string plate)
+    {
+        occupancy++;
+        lotSummary(*this);
+    }
+
+    friend void lotSummary(ParkingLot &lot);
 };
+
+void lotSummary(ParkingLot &p)
+{
+    std::cout << p.occupancy << "\n";
+}

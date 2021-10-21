@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
 #include <ParkingLot.h>
 #include <Logger.h>
 #include <Vehicle.h>
@@ -28,7 +30,7 @@ int main()
             cin.ignore(32767, '\n');
             cin >> number_plate;
             Vehicle *temp = new Vehicle(type, number_plate);
-            p.Park(type, number_plate);
+            p.Park(temp);
             myLog.push_back(VehicleLog(0, -1, temp));
             break;
         }

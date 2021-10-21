@@ -1,5 +1,10 @@
-#include <iostream>
+#ifndef PARKINGLOT_H
+#define PARKINGLOT_H
+#include <map>
+#include <string>
+#include <vector>
 #include <Vehicle.h>
+using namespace std;
 class ParkingLot
 {
 private:
@@ -7,6 +12,7 @@ private:
     int m_floors;
     int m_spots;
     int occupancy;
+    map<string, vector<pair<int, int>>> mp;
 
 public:
     ParkingLot(int floors = 6, int spots = 9)
@@ -55,7 +61,7 @@ public:
         }
     }
 
-    void Park(int type, std::string plate)
+    void Park(Vehicle *&temp)
     {
         occupancy++;
         // parking logic
@@ -69,3 +75,5 @@ void lotSummary(ParkingLot &p)
 {
     std::cout << "The current occupancy of the Parking Lot is " << p.occupancy << ".\n";
 }
+
+#endif

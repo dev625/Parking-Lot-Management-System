@@ -1,3 +1,6 @@
+#ifndef LOGGER_H
+#define LOGGER_H
+
 #include <Vehicle.h>
 #include <iostream>
 class VehicleLog
@@ -37,3 +40,5 @@ public:
         std::cout << temp->getPlate() << " " << m_start_time << " " << m_end_time << "\n";
     }
 };
+
+#endif

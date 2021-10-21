@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+
 class Vehicle
 {
 protected:
@@ -10,6 +11,7 @@ protected:
     std::string m_numberPlate;
 
 public:
+    // Parameterized Constructor
     Vehicle(int size, std::string numberPlate)
     {
         m_size = size;

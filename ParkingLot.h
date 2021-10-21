@@ -6,7 +6,7 @@ private:
     int **p;
     int m_floors;
     int m_spots;
-    static int occupancy;
+    int occupancy;
 
 public:
     ParkingLot(int floors = 6, int spots = 9)
@@ -58,6 +58,7 @@ public:
     void Park(int type, std::string plate)
     {
         occupancy++;
+        // parking logic
         lotSummary(*this);
     }
 
@@ -66,5 +67,5 @@ public:
 
 void lotSummary(ParkingLot &p)
 {
-    std::cout << p.occupancy << "\n";
+    std::cout << "The current occupancy of the Parking Lot is " << p.occupancy << ".\n";
 }

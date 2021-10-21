@@ -1,3 +1,6 @@
+#ifndef VEHICLE_H
+#define VEHICLE_H
+
 #include <string>
 #include <iostream>
 class Vehicle
@@ -13,13 +16,20 @@ public:
         m_numberPlate = numberPlate;
     }
 
-    void describe()
+    void describe() const
     {
         std::cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";
     }
 
-    int getSize()
+    int getSize() const
     {
         return m_size;
     }
+
+    std::string getPlate() const
+    {
+        return m_numberPlate;
+    }
 };
+
+#endif

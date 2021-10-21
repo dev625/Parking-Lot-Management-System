@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 #include <ParkingLot.h>
+#include <Logger.h>
+#include <Vehicle.h>
 using namespace std;
 
 int main()
@@ -8,6 +10,7 @@ int main()
     p.showParkingLot();
     int type;
     string number_plate;
+    vector<VehicleLog> myLog;
     while (1)
     {
         cout << "What action do you want to perform?\n";
@@ -19,17 +22,30 @@ int main()
         switch (x)
         {
         case 1:
+        {
             cout << "Enter the type and the number plate\n";
             cin >> type;
             cin.ignore(32767, '\n');
             cin >> number_plate;
-            cout << number_plate;
+            Vehicle *temp = new Vehicle(type, number_plate);
             p.Park(type, number_plate);
+            myLog.push_back(VehicleLog(0, -1, temp));
             break;
+        }
+
         case 2:
+        {
             break;
+        }
         case 3:
+        {
+            cout << "Following is the log of the vehicles:\n";
+            for (auto &x : myLog)
+            {
+                x.describe();
+            }
             break;
+        }
         }
     }
 }

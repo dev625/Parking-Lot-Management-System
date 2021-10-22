@@ -10,21 +10,11 @@ class VehicleLog
 private:
     time_t m_start_time;
     time_t m_end_time;
-    Vehicle *temp;
+    Vehicle *m_vehicle;
 
 public:
-    VehicleLog(time_t start_time, Vehicle *&v)
+    VehicleLog(time_t start_time, Vehicle *&v) : m_start_time{start_time}, m_end_time{-1}, m_vehicle{v}
     {
-        m_start_time = start_time;
-        m_end_time = -1;
-        temp = v;
-    }
-
-    VehicleLog(time_t start_time, time_t end_time, Vehicle *&v)
-    {
-        m_start_time = start_time;
-        m_end_time = end_time;
-        temp = v;
     }
 
     void setStart(time_t start_time)
@@ -37,17 +27,20 @@ public:
         m_end_time = end_time;
     }
 
+    string getPlate() const
+    {
+        return m_vehicle->getPlate();
+    }
+
     void describe()
     {
-        char *formatted_start = ctime(&m_start_time);
         if (m_end_time == -1)
         {
-            cout << temp->getPlate() << " " << formatted_start << "\n";
+            cout << m_vehicle->getPlate() << " " << ctime(&m_start_time) << "\n";
         }
         else
         {
-            char *formatted_end = ctime(&m_end_time);
-            cout << temp->getPlate() << " " << formatted_start << " " << formatted_end << "\n";
+            cout << m_vehicle->getPlate() << " " << ctime(&m_start_time) << " " << ctime(&m_end_time) << "\n";
         }
     }
 };

@@ -54,6 +54,7 @@ int main()
         case 4:
         {
             p.showParkingLot();
+            break;
         }
         case 5:
         {

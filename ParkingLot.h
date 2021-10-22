@@ -56,9 +56,9 @@ public:
         {
             for (int j = 0; j < m_spots; j++)
             {
-                std::cout << p[i][j] << " ";
+                cout << p[i][j] << " ";
             }
-            std::cout << "\n";
+            cout << "\n";
         }
     }
 
@@ -74,7 +74,7 @@ public:
 
 void lotSummary(ParkingLot &p)
 {
-    std::cout << "The current occupancy of the Parking Lot is " << p.occupancy << ".\n";
+    cout << "The current occupancy of the Parking Lot is " << p.occupancy << ".\n";
 }
 
 #endif

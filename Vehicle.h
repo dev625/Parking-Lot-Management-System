@@ -19,6 +19,13 @@ public:
         m_numberPlate = numberPlate;
     }
 
+    // Copy Constructor
+    Vehicle(Vehicle &p)
+    {
+        p.m_size = this->m_size;
+        p.m_numberPlate = this->m_numberPlate;
+    }
+
     void describe() const
     {
         cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";

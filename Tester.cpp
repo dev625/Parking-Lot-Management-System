@@ -18,9 +18,9 @@ int main()
         cout << "What action do you want to perform?\n";
         cout << "Press 1 to park a vehicle\n";
         cout << "Press 2 to remove a vehicle from the parking lot\n";
-        cout << "Press 3 to get a log of parking details\n";
-        cout << "Press 4 for getting the current layout of the parking lot\n";
-        cout << "Press 5 for terminating the program\n";
+        cout << "Press 3 to get a log of the parking details\n";
+        cout << "Press 4 to get the current layout of the parking lot\n";
+        cout << "Press 5 to terminate the program\n";
         int x;
         cin >> x;
         switch (x)
@@ -45,7 +45,7 @@ int main()
         case 3:
         {
             cout << "Following is the log of the vehicles:\n";
-            for (auto &x : myLog)
+            for (VehicleLog &x : myLog)
             {
                 x.describe();
             }

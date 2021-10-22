@@ -3,16 +3,17 @@
 
 #include <string>
 #include <iostream>
+using namespace std;
 
 class Vehicle
 {
 protected:
     int m_size;
-    std::string m_numberPlate;
+    string m_numberPlate;
 
 public:
     // Parameterized Constructor
-    Vehicle(int size, std::string numberPlate)
+    Vehicle(int size, string numberPlate)
     {
         m_size = size;
         m_numberPlate = numberPlate;
@@ -20,7 +21,7 @@ public:
 
     void describe() const
     {
-        std::cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";
+        cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";
     }
 
     int getSize() const
@@ -28,7 +29,7 @@ public:
         return m_size;
     }
 
-    std::string getPlate() const
+    string getPlate() const
     {
         return m_numberPlate;
     }

@@ -16,9 +16,11 @@ int main()
     while (1)
     {
         cout << "What action do you want to perform?\n";
-        cout << "Press 1 for parking a vehicle\n";
-        cout << "Press 2 for removing the vehicle from the parking lot\n";
-        cout << "Press 3 for getting a log of parking\n";
+        cout << "Press 1 to park a vehicle\n";
+        cout << "Press 2 to remove a vehicle from the parking lot\n";
+        cout << "Press 3 to get a log of parking details\n";
+        cout << "Press 4 for getting the current layout of the parking lot\n";
+        cout << "Press 5 for terminating the program\n";
         int x;
         cin >> x;
         switch (x)
@@ -31,7 +33,8 @@ int main()
             cin >> number_plate;
             Vehicle *temp = new Vehicle(type, number_plate);
             p.Park(temp);
-            myLog.push_back(VehicleLog(0, -1, temp));
+            time_t now = time(0);
+            myLog.push_back(VehicleLog(now, temp));
             break;
         }
 
@@ -47,6 +50,15 @@ int main()
                 x.describe();
             }
             break;
+        }
+        case 4:
+        {
+            p.showParkingLot();
+        }
+        case 5:
+        {
+            cout << "Thank you!";
+            exit(0);
         }
         }
     }

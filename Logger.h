@@ -3,41 +3,52 @@
 
 #include <Vehicle.h>
 #include <iostream>
+#include <ctime>
+using namespace std;
 class VehicleLog
 {
 private:
-    int m_start_time;
-    int m_end_time;
+    time_t m_start_time;
+    time_t m_end_time;
     Vehicle *temp;
 
 public:
-    VehicleLog()
+    VehicleLog(time_t start_time, Vehicle *&v)
     {
-        m_start_time = -1;
+        m_start_time = start_time;
         m_end_time = -1;
-        temp = new Vehicle(-1, "TEMP_PLATE");
+        temp = v;
     }
 
-    VehicleLog(int start_time, int end_time, Vehicle *&v)
+    VehicleLog(time_t start_time, time_t end_time, Vehicle *&v)
     {
         m_start_time = start_time;
         m_end_time = end_time;
         temp = v;
     }
 
-    void setStart(int start_time)
+    void setStart(time_t start_time)
     {
         m_start_time = start_time;
     }
 
-    void setEnd(int end_time)
+    void setEnd(time_t end_time)
     {
         m_end_time = end_time;
     }
 
     void describe()
     {
-        std::cout << temp->getPlate() << " " << m_start_time << " " << m_end_time << "\n";
+        char *formatted_start = ctime(&m_start_time);
+        if (m_end_time == -1)
+        {
+            cout << temp->getPlate() << " " << formatted_start << "\n";
+        }
+        else
+        {
+            char *formatted_end = ctime(&m_end_time);
+            cout << temp->getPlate() << " " << formatted_start << " " << formatted_end << "\n";
+        }
     }
 };
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <chrono>
 #include <vector>
 #include <ParkingLot.h>
 #include <Logger.h>
@@ -24,7 +25,6 @@ int main()
         cout << "Press 5 to terminate the program.\n";
         int x;
         cin >> x;
-        time_t now = time(0);
         switch (x)
         {
         case 1:
@@ -37,6 +37,7 @@ int main()
             bool check = p.Park(input_vehicle);
             if (check)
             {
+                time_t now = time(NULL);
                 myLog.push_back(VehicleLog(now, input_vehicle));
             }
             else
@@ -54,7 +55,7 @@ int main()
             {
                 if (log.getPlate() == number_plate)
                 {
-                    log.setEnd(now);
+                    log.setEnd();
                     break;
                 }
             }

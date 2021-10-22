@@ -4,6 +4,7 @@
 #include <Vehicle.h>
 #include <iostream>
 #include <ctime>
+#include <chrono>
 using namespace std;
 class VehicleLog
 {
@@ -17,14 +18,14 @@ public:
     {
     }
 
-    void setStart(time_t start_time)
+    void setStart()
     {
-        m_start_time = start_time;
+        m_start_time = time(0);
     }
 
-    void setEnd(time_t end_time)
+    void setEnd()
     {
-        m_end_time = end_time;
+        m_end_time = time(NULL);
     }
 
     string getPlate() const
@@ -36,11 +37,14 @@ public:
     {
         if (m_end_time == -1)
         {
-            cout << m_vehicle->getPlate() << " " << ctime(&m_start_time) << "\n";
+            cout << "Vehicle License Plate : " << m_vehicle->getPlate() << "\n";
+            cout << "Vehicle Entry Time : " << ctime(&m_start_time) << endl;
         }
         else
         {
-            cout << m_vehicle->getPlate() << " " << ctime(&m_start_time) << " " << ctime(&m_end_time) << "\n";
+            cout << "Vehicle License Plate : " << m_vehicle->getPlate() << "\n";
+            cout << "Vehicle Entry Time : " << ctime(&m_start_time) << endl;
+            cout << "Vehicle Exit Time : " << ctime(&m_end_time) << endl;
         }
     }
 };

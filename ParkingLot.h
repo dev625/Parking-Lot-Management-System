@@ -155,7 +155,7 @@ public:
         {
             return false;
         }
-        vector<pair<int, int>> co_ords = m_coords_map[plate];
+        vector<pair<int, int>> co_ords = m_coords_map[plate]; // Vector for the coordinates of the vehicle
         for (auto &x : co_ords)
         {
             if (x.second < 3)

@@ -9,11 +9,11 @@ using namespace std;
 class ParkingLot
 {
 private:
-    int **p;         // double pointer of type int
-    int m_floors;    // the number of floors
-    int m_spots;     // the number of parking spots per floor
-    int m_occupancy; // current occupancy of the parking lot
-    map<string, vector<pair<int, int>>> m_coords_map;
+    int **p;                                          // double pointer of type int
+    int m_floors;                                     // the number of floors
+    int m_spots;                                      // the number of parking spots per floor
+    int m_occupancy;                                  // current occupancy of the parking lot
+    map<string, vector<pair<int, int>>> m_coords_map; // map to keep track of co-ordinates
 
 public:
     // Parameterized Constructor with Member Initializer List
@@ -151,10 +151,12 @@ public:
 
     bool dePark(const string &plate)
     {
+        // Check if a key = plate exists in the map
         if (m_coords_map.find(plate) == m_coords_map.end())
         {
             return false;
         }
+        m_occupancy--;
         vector<pair<int, int>> co_ords = m_coords_map[plate]; // Vector for the coordinates of the vehicle
         for (auto &x : co_ords)
         {
@@ -167,6 +169,7 @@ public:
         }
         m_coords_map.erase(plate);
         cout << "Your vehicle is succesfully deparked.\n";
+        lotSummary(*this);
         return true;
     }
 

@@ -8,8 +8,8 @@ using namespace std;
 
 int main()
 {
-    ParkingLot p(6, 9); // Create a Parking Lot Object
-    p.showParkingLot(); // Display the initial layout
+    ParkingLot PL(6, 9); // Create a Parking Lot Object
+    PL.showParkingLot(); // Display the initial layout
     int type;
     string number_plate;
     vector<VehicleLog> myLog; // Dynamic Array for Log of Vehicles
@@ -33,7 +33,7 @@ int main()
             cin.ignore(32767, '\n');
             cin >> number_plate;
             Vehicle *input_vehicle = new Vehicle(type, number_plate); // Create a Vehicle Object in Dynamic Memory
-            bool check = p.Park(input_vehicle);                       // Check whether if it is possible to park
+            bool check = PL.Park(input_vehicle);                      // Check whether if it is possible to park
             if (check)
             {
                 time_t now = time(NULL);                         // Get the current system time
@@ -49,17 +49,21 @@ int main()
         case 2:
         {
             cin >> number_plate; // Get the Number Plate from the user and try to park it
-            bool check = p.dePark(number_plate);
+            bool check = PL.dePark(number_plate);
             if (!check) // If no vehicle with number_plate found then print error message
             {
                 cout << "No vehicle with plate number " << number_plate << " found, Please Enter a Valid Number Plate.\n";
             }
-            for (VehicleLog &log : myLog)
+            else
             {
-                if (log.getPlate() == number_plate)
+                // Set the end time
+                for (int i = 0; i < myLog.size(); i++)
                 {
-                    log.setEnd();
-                    break;
+                    if (myLog[i].getPlate() == number_plate)
+                    {
+                        myLog[i].setEnd();
+                        break;
+                    }
                 }
             }
             break;
@@ -73,7 +77,7 @@ int main()
         }
         case 4:
         {
-            p.showParkingLot();
+            PL.showParkingLot();
             break;
         }
         case 5:

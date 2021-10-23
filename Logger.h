@@ -9,18 +9,24 @@ using namespace std;
 class VehicleLog
 {
 private:
-    time_t m_start_time;
-    time_t m_end_time;
-    Vehicle *m_vehicle;
+    time_t m_start_time; // Entry time of the Vehicle
+    time_t m_end_time;   // Exit time of the Vehicle
+    Vehicle *m_vehicle;  // Pointer to Vehicle Object
 
 public:
+    // Parameterized Constructor 1
     VehicleLog(time_t start_time, Vehicle *&v) : m_start_time{start_time}, m_end_time{-1}, m_vehicle{v}
+    {
+    }
+
+    // Parameterized Constructor 2
+    VehicleLog(time_t start_time, time_t end_time, Vehicle *&v) : m_start_time{start_time}, m_end_time{end_time}, m_vehicle{v}
     {
     }
 
     void setStart()
     {
-        m_start_time = time(0);
+        m_start_time = time(NULL);
     }
 
     void setEnd()

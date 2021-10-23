@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <chrono>
 #include <vector>
 #include <ParkingLot.h>
 #include <Logger.h>
@@ -10,10 +9,10 @@ using namespace std;
 int main()
 {
     ParkingLot p(6, 9); // Create a Parking Lot Object
-    p.showParkingLot();
+    p.showParkingLot(); // Display the initial layout
     int type;
     string number_plate;
-    vector<VehicleLog> myLog;
+    vector<VehicleLog> myLog; // Dynamic Array for Log of Vehicles
     // Start the User I/O
     while (1)
     {
@@ -33,12 +32,12 @@ int main()
             cin >> type;
             cin.ignore(32767, '\n');
             cin >> number_plate;
-            Vehicle *input_vehicle = new Vehicle(type, number_plate);
-            bool check = p.Park(input_vehicle);
+            Vehicle *input_vehicle = new Vehicle(type, number_plate); // Create a Vehicle Object in Dynamic Memory
+            bool check = p.Park(input_vehicle);                       // Check whether if it is possible to park
             if (check)
             {
-                time_t now = time(NULL);
-                myLog.push_back(VehicleLog(now, input_vehicle));
+                time_t now = time(NULL);                         // Get the current system time
+                myLog.push_back(VehicleLog(now, input_vehicle)); // Create a VehicleLog Object and add it to myLog Array
             }
             else
             {
@@ -49,8 +48,12 @@ int main()
 
         case 2:
         {
-            cin >> number_plate;
-            p.dePark(number_plate);
+            cin >> number_plate; // Get the Number Plate from the user and try to park it
+            bool check = p.dePark(number_plate);
+            if (!check) // If no vehicle with number_plate found then print error message
+            {
+                cout << "No vehicle with plate number " << number_plate << " found, Please Enter a Valid Number Plate.\n";
+            }
             for (VehicleLog &log : myLog)
             {
                 if (log.getPlate() == number_plate)
@@ -64,7 +67,7 @@ int main()
         case 3:
         {
             cout << "Following is the log of the vehicles:\n";
-            for (VehicleLog &log : myLog)
+            for (VehicleLog &log : myLog) // Iterate throught the myLog Array and call describe for each object
                 log.describe();
             break;
         }
@@ -77,6 +80,7 @@ int main()
         {
             cout << "Thank you!";
             exit(0);
+            break;
         }
         }
     }

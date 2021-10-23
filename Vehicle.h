@@ -8,8 +8,8 @@ using namespace std;
 class Vehicle
 {
 protected:
-    int m_size;
-    string m_numberPlate;
+    int m_size;           // Type of the Vehicle
+    string m_numberPlate; // License Plate of the Vehicle
 
 public:
     // Parameterized Constructor
@@ -20,10 +20,10 @@ public:
     }
 
     // Copy Constructor
-    Vehicle(Vehicle &p)
+    Vehicle(const Vehicle &p)
     {
-        p.m_size = this->m_size;
-        p.m_numberPlate = this->m_numberPlate;
+        m_size = p.m_size;
+        m_numberPlate = p.m_numberPlate;
     }
 
     void describe() const

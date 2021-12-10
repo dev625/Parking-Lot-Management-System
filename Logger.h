@@ -39,6 +39,23 @@ public:
         return m_vehicle->getPlate();
     }
 
+    int getSize() const
+    {
+        return m_vehicle->getSize();
+    }
+
+    time_t time_spent() const
+    {
+        if (m_end_time == -1)
+        {
+            return -1;
+        }
+        else
+        {
+            return m_end_time - m_start_time;
+        }
+    }
+
     void describe()
     {
         if (m_end_time == -1)

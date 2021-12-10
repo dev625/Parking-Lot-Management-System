@@ -8,7 +8,7 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-I",
-				"C:/Users/witdx/OneDrive/Desktop/Parking Lot Management System",
+				"C:/Users/witdx/OneDrive/Desktop/Devesh_Arnav_Reetika_Srikar_Kanishk",
 				"-g",
 				"${file}",
 				"-o",

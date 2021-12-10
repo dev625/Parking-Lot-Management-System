@@ -26,19 +26,62 @@ public:
         m_numberPlate = p.m_numberPlate;
     }
 
-    void describe() const
+    // Function to Describe the Vehicle Object
+    // Virtual Function Concept
+    virtual void describe() const
     {
-        cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << "\n";
+        cout << "My size is " << m_size << " and my license plate is " << m_numberPlate << ".\n";
     }
 
+    // Function to Return the Vehicle Size
     int getSize() const
     {
         return m_size;
     }
 
+    // Function to Return the License Plate of the User
     string getPlate() const
     {
         return m_numberPlate;
+    }
+};
+
+class Bike : public Vehicle
+{
+public:
+    // Constructor for Bike Class and Calling the Base Class Constructor
+    Bike(int size, string number_plate) : Vehicle(size, number_plate)
+    {
+    }
+    void describe() const
+    {
+        cout << "This vehicle is a Bike with size 1 and license plate " << m_numberPlate << ".\n";
+    }
+};
+
+class Car : public Vehicle
+{
+    // Constructor for Car Class and Calling the Base Class Constructor
+public:
+    Car(int size, string number_plate) : Vehicle(size, number_plate)
+    {
+    }
+    void describe() const
+    {
+        cout << "This vehicle is a Car with size 2 and license plate " << m_numberPlate << ".\n";
+    }
+};
+
+class Bus : public Vehicle
+{
+    // Constructor for Bus Class and Calling the Base Class Constructor
+public:
+    Bus(int size, string number_plate) : Vehicle(size, number_plate)
+    {
+    }
+    void describe() const
+    {
+        cout << "This vehicle is a car with size 2 and license plate " << m_numberPlate << ".\n";
     }
 };
 

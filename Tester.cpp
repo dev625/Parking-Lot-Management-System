@@ -24,7 +24,7 @@ int main()
         cout << "Press 3 to get a log of the parking details.\n";
         cout << "Press 4 to get the current layout of the parking lot.\n";
         cout << "Press 5 to describe all the vehicles that have been in the parking lot.\n";
-        cout << "Press 6 to calculate cost incuured for a particular vehicle.\n";
+        cout << "Press 6 to calculate cost incurred for a particular vehicle.\n";
         cout << "Press 7 to terminate the program.\n";
         int action;
         cin >> action;
@@ -136,11 +136,11 @@ int main()
                     int v_type = log.getSize();
                     cout << "The total cost incurred by this vehicle is ";
                     if (v_type == 1)
-                        cout << Bike_Cost_Calculator::getCost(log) << "\n";
+                        cout << Bike_Cost_Calculator::getCost(log) << " Rupees Only.\n";
                     else if (v_type == 2)
-                        cout << Car_Cost_Calculator::getCost(log) << "\n";
+                        cout << Car_Cost_Calculator::getCost(log) << " Rupees Only. \n";
                     else if (v_type == 3)
-                        cout << Bus_Cost_Calculator::getCost(log) << "\n";
+                        cout << Bus_Cost_Calculator::getCost(log) << " Rupees Only. \n";
                     break;
                 }
             }

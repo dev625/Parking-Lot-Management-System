@@ -25,14 +25,14 @@ public:
             m_parking_lot[i] = new int[spots]; // each of those pointers point to a 1-D array
         }
         // Init the Parking Lot Spots Size
-        int per_floor_sports = m_spots / 3;
+        int per_floor_spots = m_spots / 3;
         for (int i = 0; i < floors; i++)
         {
             for (int j = 0; j < spots; j++)
             {
-                if (j < per_floor_sports)
+                if (j < per_floor_spots)
                     m_parking_lot[i][j] = 1;
-                else if (j < 2 * per_floor_sports)
+                else if (j < 2 * per_floor_spots)
                     m_parking_lot[i][j] = 2;
                 else
                     m_parking_lot[i][j] = 3;

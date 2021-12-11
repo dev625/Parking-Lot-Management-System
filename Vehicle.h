@@ -81,7 +81,7 @@ public:
     }
     void describe() const
     {
-        cout << "This vehicle is a car with size 2 and license plate " << m_numberPlate << ".\n";
+        cout << "This vehicle is a Bus with size 3 and license plate " << m_numberPlate << ".\n";
     }
 };
 

@@ -1,4 +1,19 @@
+/*
+This is the course project for the Course ECE 4080 : OOPS Using C++
+An overview can be seen in the README.md file.
+
+Group Members :
+
+Name                        - Registration Number
+Devesh Lohumi               - 180907258
+Arnav Saxena                - 180907160
+Nallamilli Srikar Reddy     - 180907254
+Reetika Madan               - 180907440
+Kanishk Ujjwal              - 180907332
+*/
+
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <Logger.h>
@@ -25,7 +40,8 @@ int main()
         cout << "Press 4 to get the current layout of the parking lot.\n";
         cout << "Press 5 to describe all the vehicles that have been in the parking lot.\n";
         cout << "Press 6 to calculate cost incurred for a particular vehicle.\n";
-        cout << "Press 7 to terminate the program.\n";
+        cout << "Press 7 to generate a csv file with the log of vehicles\n";
+        cout << "Press 8 to terminate the program.\n";
         int action;
         cin >> action;
         switch (action)
@@ -52,6 +68,7 @@ int main()
 
         case 2:
         {
+            cout << "Enter the number plate : \n";
             cin >> number_plate; // Get the Number Plate from the user and try to park it
             bool check = PL.dePark(number_plate);
             if (!check) // If no vehicle found with input license plate then raise error
@@ -104,19 +121,19 @@ int main()
                 // Create apt derived class objects whose address is assigned to the base class pointer
                 if (v_size == 1)
                 {
-                    Bike *temp_bike = new Bike(v_size, log.getPlate());
+                    Bike *temp_bike = new Bike(log.getPlate());
                     my_vec_obj = temp_bike;
                     my_vec_obj->describe();
                 }
                 else if (v_size == 2)
                 {
-                    Car *temp_car = new Car(v_size, log.getPlate());
+                    Car *temp_car = new Car(log.getPlate());
                     my_vec_obj = temp_car;
                     my_vec_obj->describe();
                 }
                 else if (v_size == 3)
                 {
-                    Bus *temp_bus = new Bus(v_size, log.getPlate());
+                    Bus *temp_bus = new Bus(log.getPlate());
                     my_vec_obj = temp_bus;
                     my_vec_obj->describe();
                 }
@@ -125,7 +142,7 @@ int main()
         }
         case 6:
         {
-            cout << "Please Enter the Number Plate.\n";
+            cout << "Please Enter the Number Plate : \n";
             cin >> number_plate;
             bool vehicleFound = false;
             for (VehicleLog &log : myLog)
@@ -151,6 +168,16 @@ int main()
             break;
         }
         case 7:
+        {
+            ofstream out_file("log.csv");
+            out_file << "License_Plate,Start_Time,End_Time\n";
+            for (VehicleLog &log : myLog) // Iterate throught the myLog Array and call describe for each object
+                out_file << log.getPlate() << "," << log.getStart() << "," << log.getEnd() << "\n";
+            cout << "log.csv is ready with the log of vehicles!\n";
+            out_file.close();
+            break;
+        }
+        case 8:
         {
             cout << "Thank you!";
             exit(0);

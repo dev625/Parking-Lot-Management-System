@@ -50,10 +50,10 @@ class Bike : public Vehicle
 {
 public:
     // Constructor for Bike Class and Calling the Base Class Constructor
-    Bike(int size, string number_plate) : Vehicle(size, number_plate)
+    Bike(string number_plate) : Vehicle(1, number_plate)
     {
     }
-    void describe() const
+    virtual void describe() const
     {
         cout << "This vehicle is a Bike with size 1 and license plate " << m_numberPlate << ".\n";
     }
@@ -63,10 +63,10 @@ class Car : public Vehicle
 {
     // Constructor for Car Class and Calling the Base Class Constructor
 public:
-    Car(int size, string number_plate) : Vehicle(size, number_plate)
+    Car(string number_plate) : Vehicle(2, number_plate)
     {
     }
-    void describe() const
+    virtual void describe() const
     {
         cout << "This vehicle is a Car with size 2 and license plate " << m_numberPlate << ".\n";
     }
@@ -76,10 +76,10 @@ class Bus : public Vehicle
 {
     // Constructor for Bus Class and Calling the Base Class Constructor
 public:
-    Bus(int size, string number_plate) : Vehicle(size, number_plate)
+    Bus(string number_plate) : Vehicle(3, number_plate)
     {
     }
-    void describe() const
+    virtual void describe() const
     {
         cout << "This vehicle is a Bus with size 3 and license plate " << m_numberPlate << ".\n";
     }

@@ -21,7 +21,7 @@ public:
     {
         if (log.time_spent() == -1)
             return 0;
-        return 100 + (3 * log.time_spent());
+        return 10 + (3 * log.time_spent());
     }
 };
 
@@ -33,7 +33,7 @@ public:
     {
         if (log.time_spent() == -1)
             return 0;
-        return 200 + (4 * log.time_spent());
+        return 20 + (4 * log.time_spent());
     }
 };
 
@@ -45,7 +45,7 @@ public:
     {
         if (log.time_spent() == -1)
             return 0;
-        return 300 + (5 * log.time_spent());
+        return 30 + (5 * log.time_spent());
     }
 };
 

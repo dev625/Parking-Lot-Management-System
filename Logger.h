@@ -44,6 +44,15 @@ public:
         return m_vehicle->getSize();
     }
 
+    time_t getStart()
+    {
+        return m_start_time;
+    }
+    time_t getEnd()
+    {
+        return m_end_time;
+    }
+
     time_t time_spent() const
     {
         if (m_end_time == -1)

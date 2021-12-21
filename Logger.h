@@ -44,11 +44,11 @@ public:
         return m_vehicle->getSize();
     }
 
-    time_t getStart()
+    time_t getStart() const
     {
         return m_start_time;
     }
-    time_t getEnd()
+    time_t getEnd() const
     {
         return m_end_time;
     }

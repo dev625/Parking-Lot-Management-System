@@ -1,17 +1,3 @@
-/*
-This is the course project for the Course ECE 4080 : OOPS Using C++
-An overview can be seen in the README.md file.
-
-Group Members :
-
-Name                        - Registration Number
-Devesh Lohumi               - 180907258
-Arnav Saxena                - 180907160
-Nallamilli Srikar Reddy     - 180907254
-Reetika Madan               - 180907440
-Kanishk Ujjwal              - 180907332
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>
